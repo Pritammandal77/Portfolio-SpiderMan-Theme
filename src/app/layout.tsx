@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Header";
+import ReactLenis from "lenis/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -86,7 +87,17 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-black text-white">
         <Navbar />
-        {children}
+        <ReactLenis
+          root
+          options={{
+            lerp: 0.1,
+            duration: 1.4,
+            orientation: "vertical",
+            smoothWheel: true,
+          }}
+        >
+          {children}
+        </ReactLenis>
       </body>
     </html>
   );
