@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 
 const imgSpiderman = "/spiderman/man-spider.png";
 const imgMan = "/man/pritamImgNew.jpg";
@@ -21,22 +22,12 @@ type Project = {
 
 const MISSIONS: Project[] = [
   {
-    id: "01",
-    name: "Roomioo",
-    description:
-      "A platform where users can find roommates/flatmates based on preferences or lifestyle.",
-    tech: ["React", "Node.js", "Express", "MongoDB", "Socket.io"],
-    image: imgSpiderman,
-    link: "https://roomioo.vercel.app",
-    blend: "mix-blend-luminosity brightness-75",
-  },
-  {
     id: "02",
     name: "Notexa",
     description:
       "A full-stack platform for buying and selling academic notes with Razorpay payments, role-based authentication, and an AI-powered chatbot for user assistance.",
     tech: ["Next.js", "Node.js", "MongoDB", "Razorpay", "AI (RAG)"],
-    image: imgMan,
+    image: imgSpiderman,
     link: "https://notexahub.vercel.app",
     blend: "mix-blend-luminosity grayscale",
   },
@@ -49,6 +40,16 @@ const MISSIONS: Project[] = [
     image: imgSpiderman,
     link: "https://devstackr.netlify.app",
     blend: "mix-blend-overlay brightness-125 saturate-150",
+  },
+  {
+    id: "04",
+    name: "E-Commerce",
+    description:
+      "Developed a E-Commerce website, where users can browse a lot of products , serach items, filters , etc. Though it is a simulated store, all the items are fake",
+    tech: ["React", "Firebase", "Tailwind CSS", "Redux"],
+    image: imgSpiderman,
+    link: "https://aura-mart.netlify.app",
+    blend: "mix-blend-luminosity grayscale",
   },
 ];
 
@@ -202,6 +203,32 @@ export default function Projects() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const headerRef = useRef<HTMLDivElement | null>(null);
 
+  const sliderRef = useRef<HTMLDivElement | null>(null);
+  const trackRef = useRef<HTMLDivElement | null>(null);
+
+  const currentIndex = useRef(0);
+
+  const slide = (dir: "left" | "right") => {
+    if (!trackRef.current || !sliderRef.current) return;
+
+    const cardWidth = sliderRef.current.offsetWidth / 3; // 3 cards visible
+    const maxIndex = MISSIONS.length - 3;
+
+    if (dir === "right" && currentIndex.current < maxIndex) {
+      currentIndex.current++;
+    }
+
+    if (dir === "left" && currentIndex.current > 0) {
+      currentIndex.current--;
+    }
+
+    gsap.to(trackRef.current, {
+      x: -currentIndex.current * cardWidth,
+      duration: 0.6,
+      ease: "power3.out",
+    });
+  };
+
   useEffect(() => {
     if (!sectionRef.current) return;
 
@@ -268,10 +295,34 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12 place-items-center">
-          {MISSIONS.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+        <div className="relative" ref={sliderRef}>
+          {/* LEFT BUTTON */}
+          <button
+            onClick={() => slide("left")}
+            className="text-white absolute right-15 -top-10 -translate-y-1/2 z-20 bg-black/60 border border-white/20 p-3 rounded-full hover:border-red-500"
+          >
+            <ArrowLeftIcon />
+          </button>
+
+          {/* RIGHT BUTTON */}
+          <button
+            onClick={() => slide("right")}
+            className="text-white absolute right-0 -top-10 -translate-y-1/2 z-20 bg-black/60 border border-white/20 p-3 rounded-full hover:border-red-500"
+          >
+            <ArrowRightIcon />
+          </button>
+
+          {/* VIEWPORT */}
+          <div className="overflow-hidden">
+            {/* TRACK */}
+            <div ref={trackRef} className="flex gap-8">
+              {MISSIONS.map((project) => (
+                <div key={project.id} className="min-w-[33.333%]">
+                  <ProjectCard project={project} />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
