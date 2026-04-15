@@ -294,7 +294,7 @@ export default function Hero() {
           <div className="flex-1 max-w-xl">
             <h1
               className="
-        text-4xl xl:text-[3.5rem]
+        text-5xl xl:text-[3.5rem]
         text-gray-400 font-bold tracking-tight leading-[1.1]
       "
             >
@@ -307,7 +307,7 @@ export default function Hero() {
             <h1
               className="
         xl:mt-3
-        text-3xl md:text-4xl xl:text-[3.5rem]
+        text-5xl md:text-4xl xl:text-[3.5rem]
         text-gray-400 font-bold tracking-tight leading-[1.1]
       "
             >
@@ -341,7 +341,7 @@ export default function Hero() {
             <h1
               className="
         xl:mt-3
-        text-3xl md:text-4xl xl:text-[3.5rem]
+        text-4xl md:text-4xl xl:text-[3.5rem]
         text-gray-400 font-bold tracking-tight leading-[1.1]
       "
             >
