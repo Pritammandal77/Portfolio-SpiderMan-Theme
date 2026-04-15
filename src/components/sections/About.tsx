@@ -140,7 +140,7 @@ function About() {
           className="flex flex-col justify-center space-y-10"
         >
           <div className="overflow-hidden ">
-            <h2 className="text-5xl font-bold text-white">
+            <h2 className="text-5xl font-bold text-gray-300">
               About
               <span className="text-transparent bg-clip-text bg-linear-to-r from-red-500 to-pink-500 ml-2">
                 Me

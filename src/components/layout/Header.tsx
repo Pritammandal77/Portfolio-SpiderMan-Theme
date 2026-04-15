@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
+import { Download } from "lucide-react";
 
 const NAV_LINKS: { name: string; href: string }[] = [
   { name: "Home", href: "#" },
@@ -170,7 +171,7 @@ export default function Navbar() {
           </div>
 
           {/* CTA */}
-          <div className="hidden md:block">
+          <div className="hidden lg:flex items-center justify-center gap-3">
             <button
               ref={(el) => {
                 linksRef.current[NAV_LINKS.length] = el;
@@ -186,13 +187,32 @@ export default function Navbar() {
               <span className="relative z-10 group-hover:text-black transition">
                 Let's Talk
               </span>
+
               <div className="absolute inset-0 bg-white scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500" />
             </button>
+
+            <a
+              href="/resume/PritamMandal_FullStackDeveloper.pdf"
+              download="PritamMandal_FullStackDeveloper.pdf"
+            >
+              <button className="relative px-6 py-2.5 flex items-center justify-center gap-2 rounded-full overflow-hidden group border border-white/20 text-white hover:text-black text-sm tracking-wider hover:border-white/60 transition">
+                <span className="relative z-10 transition group-hover:text-black">
+                  Download Resume
+                </span>
+
+                <Download
+                  size={16}
+                  className="relative z-10 transition group-hover:text-black"
+                />
+
+                <div className="absolute inset-0 bg-white scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500" />
+              </button>
+            </a>
           </div>
 
           {/* Mobile Toggle */}
           <button
-            className="md:hidden text-white p-2 z-50 relative"
+            className="lg:hidden text-white p-2 z-50 relative"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <div className="w-6 h-5 flex flex-col justify-between">
@@ -231,15 +251,22 @@ export default function Navbar() {
             </a>
           ))}
 
-          <button
-            ref={(el) => {
-              mobileLinksRef.current[NAV_LINKS.length] = el;
-            }}
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="mt-8 px-8 py-3 rounded-full border border-white text-white tracking-widest hover:bg-white hover:text-black transition"
+          <a
+            href="/resume/PritamMandal_FullStackDeveloper.pdf"
+            download="PritamMandal_FullStackDeveloper.pdf"
           >
-            Hire Me
-          </button>
+            <button className="relative px-6 py-2.5 flex items-center justify-center gap-2 rounded-full overflow-hidden group border border-white/20 text-white hover:text-black text-sm tracking-wider hover:border-white/60 transition">
+              <span className="relative z-10 transition group-hover:text-black">
+                Download Resume
+              </span>
+
+              <Download
+                size={16}
+                className="relative z-10 transition group-hover:text-black"
+              />
+              <div className="absolute inset-0 bg-white scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500" />
+            </button>
+          </a>
         </div>
       </div>
     </>

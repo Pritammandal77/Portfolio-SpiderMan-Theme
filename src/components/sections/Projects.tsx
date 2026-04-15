@@ -3,7 +3,11 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  CircleArrowOutUpRight,
+} from "lucide-react";
 
 const imgSpiderman = "/spiderman/man-spider.png";
 const imgMan = "/man/pritamImgNew.jpg";
@@ -48,8 +52,17 @@ const MISSIONS: Project[] = [
       "Developed a E-Commerce website, where users can browse a lot of products , serach items, filters , etc. Though it is a simulated store, all the items are fake",
     tech: ["React", "Firebase", "Tailwind CSS", "Redux"],
     image: imgSpiderman,
-    link: "https://aura-mart.netlify.app",
+    link: "https://the-aura-mart.netlify.app",
     blend: "mix-blend-luminosity grayscale",
+  },
+  {
+    id: "01 🏠",
+    name: "New Product",
+    description: "New Product Coming Soon",
+    tech: ["Comin Soon"],
+    image: imgSpiderman,
+    link: "",
+    blend: "mix-blend-overlay brightness-125 saturate-150",
   },
 ];
 
@@ -156,7 +169,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         style={{ transform: "translateZ(30px)" }}
       >
         <div className="text-red-500/80 font-mono text-xs tracking-[0.3em] mb-2 font-bold uppercase transition-transform duration-500 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100">
-          File_ID // {project.id}
+          Project_ID // {project.id}
         </div>
 
         <h3 className="text-3xl font-bold tracking-tight text-white mb-3 leading-none drop-shadow-xl font-sans">
@@ -185,8 +198,9 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             className="flex items-center space-x-2 text-sm uppercase tracking-[0.2em] font-medium text-white group/link relative"
           >
             <span className="relative overflow-hidden block">
-              <span className="block group-hover/link:-translate-y-full transition-transform duration-300">
-                Try This
+              <span className="flex items-center justify-center gap-2 group-hover/link:-translate-y-full transition-transform duration-300">
+                Try This{" "}
+                <CircleArrowOutUpRight size={14} className="text-red-600" />
               </span>
               <span className="block absolute inset-0 translate-y-full group-hover/link:translate-y-0 transition-transform duration-300 text-red-400">
                 Live Link
@@ -198,7 +212,6 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
     </div>
   );
 };
-
 export default function Projects() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const headerRef = useRef<HTMLDivElement | null>(null);
@@ -207,12 +220,23 @@ export default function Projects() {
   const trackRef = useRef<HTMLDivElement | null>(null);
 
   const currentIndex = useRef(0);
+  const cardsPerView = useRef(3);
+
+  // ✅ RESPONSIVE CARDS COUNT
+  const getCardsPerView = () => {
+    if (window.innerWidth < 768) return 1; // mobile
+    if (window.innerWidth < 1024) return 2; // tablet
+    return 3; // desktop
+  };
 
   const slide = (dir: "left" | "right") => {
     if (!trackRef.current || !sliderRef.current) return;
 
-    const cardWidth = sliderRef.current.offsetWidth / 3; // 3 cards visible
-    const maxIndex = MISSIONS.length - 3;
+    cardsPerView.current = getCardsPerView();
+
+    const cardWidth = sliderRef.current.offsetWidth / cardsPerView.current;
+
+    const maxIndex = MISSIONS.length - cardsPerView.current;
 
     if (dir === "right" && currentIndex.current < maxIndex) {
       currentIndex.current++;
@@ -229,6 +253,18 @@ export default function Projects() {
     });
   };
 
+  // ✅ RESET POSITION ON RESIZE
+  useEffect(() => {
+    const handleResize = () => {
+      currentIndex.current = 0;
+      gsap.set(trackRef.current, { x: 0 });
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // ANIMATION (same as yours)
   useEffect(() => {
     if (!sectionRef.current) return;
 
@@ -245,7 +281,7 @@ export default function Projects() {
         tl.fromTo(
           headerRef.current.children,
           { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power3.out" },
+          { opacity: 1, y: 0, duration: 1, stagger: 0.2 },
         );
       }
 
@@ -261,7 +297,6 @@ export default function Projects() {
             scale: 1,
             duration: 1.2,
             stagger: 0.15,
-            ease: "power3.out",
           },
           "-=0.6",
         );
@@ -275,49 +310,59 @@ export default function Projects() {
     <section
       id="projects"
       ref={sectionRef}
-      className="w-full min-h-screen bg-[#030303] py-32 px-6 md:px-12 lg:px-24 flex flex-col justify-center relative overflow-hidden"
+      className="w-full min-h-screen bg-[#030303] py-20 md:py-32 px-4 md:px-12 lg:px-24 flex flex-col justify-center relative overflow-hidden"
     >
-      <div className="max-w-360 mx-auto w-full relative z-10">
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        {/* HEADER */}
         <div
           ref={headerRef}
-          className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-8"
+          className="mb-12 md:mb-24 flex flex-col xl:flex-row xl:items-end justify-between border-b border-white/10 pb-6 md:pb-8"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-[4.5rem] font-bold tracking-tighter text-white font-sans leading-none drop-shadow-lg mb-4">
+          <h2 className="text-3xl md:text-5xl lg:text-[4.5rem] font-bold text-gray-300 mb-4">
             Featured
-            <span className="font-serif italic font-light text-transparent bg-clip-text bg-linear-to-r from-red-500 to-pink-500 ml-3">
+            <span className="ml-3 bg-linear-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
               Builds
             </span>
           </h2>
 
-          <p className="text-gray-400 font-light tracking-wide text-base md:text-lg max-w-sm mt-6 md:mt-0 leading-relaxed md:text-right">
+          <p className="text-gray-400 text-sm md:text-lg max-w-sm md:text-right">
             A collection of real-world projects focused on performance,
             scalability, and user experience.
           </p>
         </div>
 
+        {/* SLIDER */}
         <div className="relative" ref={sliderRef}>
-          {/* LEFT BUTTON */}
-          <button
-            onClick={() => slide("left")}
-            className="text-white absolute right-15 -top-10 -translate-y-1/2 z-20 bg-black/60 border border-white/20 p-3 rounded-full hover:border-red-500"
-          >
-            <ArrowLeftIcon />
-          </button>
+          {/* BUTTONS */}
+          <div className="flex justify-end gap-3 mb-6">
+            <button
+              onClick={() => slide("left")}
+              className="text-white bg-black/60 border border-white/20 p-2 md:p-3 rounded-full hover:border-red-500"
+            >
+              <ArrowLeftIcon size={18} />
+            </button>
 
-          {/* RIGHT BUTTON */}
-          <button
-            onClick={() => slide("right")}
-            className="text-white absolute right-0 -top-10 -translate-y-1/2 z-20 bg-black/60 border border-white/20 p-3 rounded-full hover:border-red-500"
-          >
-            <ArrowRightIcon />
-          </button>
+            <button
+              onClick={() => slide("right")}
+              className="text-white bg-black/60 border border-white/20 p-2 md:p-3 rounded-full hover:border-red-500"
+            >
+              <ArrowRightIcon size={18} />
+            </button>
+          </div>
 
           {/* VIEWPORT */}
           <div className="overflow-hidden">
             {/* TRACK */}
-            <div ref={trackRef} className="flex gap-8">
-              {MISSIONS.map((project) => (
-                <div key={project.id} className="min-w-[33.333%]">
+            <div ref={trackRef} className="flex gap-4 md:gap-8">
+              {MISSIONS.map((project, i) => (
+                <div
+                  key={i}
+                  className="
+                    min-w-full
+                    md:min-w-[50%]
+                    lg:min-w-[33.333%]
+                  "
+                >
                   <ProjectCard project={project} />
                 </div>
               ))}
@@ -326,8 +371,9 @@ export default function Projects() {
         </div>
       </div>
 
+      {/* GRID BG */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03] z-0"
+        className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{
           backgroundImage:
             "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",

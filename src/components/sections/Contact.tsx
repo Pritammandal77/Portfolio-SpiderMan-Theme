@@ -1,4 +1,5 @@
 "use client"
+
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -32,7 +33,7 @@ const CONTACTS: ContactItem[] = [
     value: "@pritamm_mandal",
     link: "https://www.instagram.com/pritam_mandal_77",
   },
-  { name: "Phone", value: "+91 9881228004", link: "tel:9881228004" },
+  { name: "Phone", value: "+919881228004", link: "tel:9881228004" },
 ];
 
 function Contact() {
@@ -204,7 +205,7 @@ function Contact() {
 
       {/* HEADING */}
       <div className="absolute top-36 text-center">
-        <h2 className="text-5xl font-bold text-white">
+        <h2 className="text-5xl font-bold text-gray-300">
           Spider
           <span className="text-transparent bg-clip-text bg-linear-to-r from-red-500 to-pink-500 ml-2">
             Network

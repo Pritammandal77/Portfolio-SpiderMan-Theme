@@ -55,7 +55,7 @@ function Footer() {
 
         {/* STATUS */}
         <p className="text-red-400/70 font-mono text-xs tracking-[0.3em] uppercase mb-10">
-          // Dev Mode: ON • Focus: 100% • Coffee: Required ☕
+          // Dev Mode: ON • Focus: 100% • Coffee: Required
         </p>
 
         {/* BUTTONS */}
@@ -76,7 +76,7 @@ function Footer() {
           </button>
 
           {/* MAIN PORTFOLIO */}
-          <a
+          {/* <a
             href="/"
             className="group relative px-8 py-3 rounded-full border border-white/20 text-white text-sm uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 hover:border-red-500 hover:shadow-[0_0_25px_rgba(255,0,0,0.6)]"
           >
@@ -88,7 +88,7 @@ function Footer() {
                 className="group-hover:translate-x-1 group-hover:-translate-y-1 transition"
               />
             </span>
-          </a>
+          </a> */}
         </div>
 
         {/* DIVIDER */}
@@ -100,7 +100,7 @@ function Footer() {
           <span className="hidden md:block">•</span>
           <span>Building Real-World Projects</span>
           <span className="hidden md:block">•</span>
-          <span>Aspiring Top 1% Dev</span>
+          <span>Crafting High-Performance Web Systems</span>
         </div>
 
         {/* COPYRIGHT */}

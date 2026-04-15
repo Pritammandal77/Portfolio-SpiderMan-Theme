@@ -98,7 +98,7 @@ function Skills() {
           </span>
         </div>
 
-        <h2 className="text-5xl md:text-7xl font-bold text-white tracking-wide">
+        <h2 className="text-5xl md:text-7xl font-bold text-gray-300 tracking-wide">
           Tech{" "}
           <span className="text-transparent bg-clip-text bg-linear-to-r from-red-500 to-pink-500 ml-2">
             Stack
