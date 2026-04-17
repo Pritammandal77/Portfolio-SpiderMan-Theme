@@ -12,10 +12,10 @@ export default function CertificateModal({ isOpen, onClose, imageSrc }: Props) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/80 backdrop-blur-md">
+    <div className="fixed inset-0 z-999 flex items-center justify-center bg-black/80 backdrop-blur-md">
 
       {/* MODAL BOX */}
-      <div className="relative w-[90%] md:w-[800px] bg-[#0b0b0b] border border-white/10 rounded-2xl p-5 shadow-[0_0_60px_rgba(255,0,0,0.25)] animate-fadeIn">
+      <div className="relative w-[90%] md:w-200 bg-[#0b0b0b] border border-white/10 rounded-2xl p-5 shadow-[0_0_60px_rgba(255,0,0,0.25)] animate-fadeIn">
 
         {/* HEADER */}
         <div className="flex justify-between items-center mb-4">

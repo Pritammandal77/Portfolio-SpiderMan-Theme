@@ -4,9 +4,29 @@ import React from "react";
 import { Code2, Database, Cpu } from "lucide-react";
 
 const LANGUAGES: string[] = ["Javascript", "Typescript", "SQL", "CPP"];
-const FRONTEND: string[] = ["React", "Next.js", "JavaScript", "Tailwind CSS", "Redux"];
-const BACKEND: string[] = ["Node.js", "Express", "MongoDB", "Firebase", "REST APIs"];
-const TOOLS: string[] = ["Git", "GitHub", "Postman", "VS Code", "Vercel", "Render", "Resend"];
+const FRONTEND: string[] = [
+  "React",
+  "Next.js",
+  "JavaScript",
+  "Tailwind CSS",
+  "Redux",
+];
+const BACKEND: string[] = [
+  "Node.js",
+  "Express",
+  "MongoDB",
+  "Firebase",
+  "REST APIs",
+];
+const TOOLS: string[] = [
+  "Git",
+  "GitHub",
+  "Postman",
+  "VS Code",
+  "Vercel",
+  "Render",
+  "Resend",
+];
 
 type SkillCardProps = {
   title: string;
@@ -47,7 +67,10 @@ function SkillCard({ title, items, icon: Icon, delay = 0 }: SkillCardProps) {
       {/* HEADER */}
       <div className="flex items-center gap-4 mb-6">
         <div className="p-3 rounded-2xl bg-red-500/10 border border-red-500/20 group-hover:bg-red-500/20 transition">
-          <Icon size={22} className="text-red-400 group-hover:text-white transition" />
+          <Icon
+            size={22}
+            className="text-red-400 group-hover:text-white transition"
+          />
         </div>
 
         <h3 className="text-white text-2xl font-bold tracking-tight">
@@ -82,7 +105,6 @@ function SkillCard({ title, items, icon: Icon, delay = 0 }: SkillCardProps) {
 function Skills() {
   return (
     <section className="relative w-full min-h-screen bg-[#050505] flex flex-col items-center justify-center px-6 py-24 overflow-hidden">
-
       {/* BACKGROUND GRID */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808010_1px,transparent_1px),linear-gradient(to_bottom,#80808010_1px,transparent_1px)] bg-size-[40px_40px] opacity-40" />
 
@@ -99,15 +121,15 @@ function Skills() {
         </div>
 
         <h2 className="text-4xl md:text-5xl font-bold text-gray-300">
-          Tech{" "}
+          Technologies I
           <span className="text-transparent bg-clip-text bg-linear-to-r from-red-500 to-pink-500 ml-2">
-            Stack
+            Work With
           </span>
         </h2>
 
-        <p className="text-zinc-500 mt-6 max-w-lg mx-auto text-lg">
-          Built with precision. Powered by{" "}
-          <span className="text-zinc-300">fullstack energy</span>.
+        <p className="text-zinc-500 mt-6 mx-auto text-sm">
+          A carefully chosen stack focused on performance, scalability, and
+          clean UI/UX.
         </p>
       </div>
 
@@ -122,8 +144,13 @@ function Skills() {
       {/* FLOAT ANIMATION */}
       <style jsx>{`
         @keyframes floatCard {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-12px); }
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-12px);
+          }
         }
       `}</style>
     </section>
