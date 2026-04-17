@@ -318,7 +318,7 @@ export default function Projects() {
           ref={headerRef}
           className="mb-12 md:mb-24 flex flex-col xl:flex-row xl:items-end justify-between border-b border-white/10 pb-6 md:pb-8"
         >
-          <h2 className="text-3xl md:text-5xl lg:text-[4.5rem] font-bold text-gray-300 mb-4">
+          <h2 className="text-3xl md:text-5xl lg:text-[4rem] font-bold text-gray-300 mb-4">
             Featured
             <span className="ml-3 bg-linear-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
               Builds
