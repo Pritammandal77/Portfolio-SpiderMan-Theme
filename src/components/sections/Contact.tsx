@@ -1,8 +1,9 @@
-"use client"
+"use client";
 
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,7 +34,7 @@ const CONTACTS: ContactItem[] = [
     value: "@pritamm_mandal",
     link: "https://www.instagram.com/pritam_mandal_77",
   },
-  { name: "Phone", value: "+919881228004", link: "tel:9881228004" },
+  // { name: "Phone", value: "+919881228004", link: "tel:9881228004" },
 ];
 
 function Contact() {
@@ -160,8 +161,13 @@ function Contact() {
         <div className="pulse-ring absolute w-40 h-40 border border-red-500/40 rounded-full" />
         <div className="pulse-ring absolute w-40 h-40 border border-red-500/20 rounded-full" />
 
-        <div className="w-24 h-24 rounded-full bg-linear-to-r from-red-600 to-pink-600 flex items-center justify-center text-white font-bold text-xl shadow-[0_0_50px_rgba(255,0,0,0.8)]">
-          PM
+        <div className="w-24 h-24 rounded-full flex items-center justify-center overflow-hidden border-2 border-red-500 shadow-[0_0_50px_rgba(255,0,0,0.8)]">
+          <Image
+            src="/spiderman/Logo.jpg"
+            alt="Image"
+            fill
+            className="object-cover rounded-full"
+          />
         </div>
       </div>
 
