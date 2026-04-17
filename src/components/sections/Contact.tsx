@@ -205,7 +205,7 @@ function Contact() {
 
       {/* HEADING */}
       <div className="absolute top-36 text-center">
-        <h2 className="text-5xl font-bold text-gray-300">
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-300">
           Spider
           <span className="text-transparent bg-clip-text bg-linear-to-r from-red-500 to-pink-500 ml-2">
             Network

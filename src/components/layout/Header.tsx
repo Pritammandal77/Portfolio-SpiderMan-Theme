@@ -14,7 +14,7 @@ const NAV_LINKS: { name: string; href: string }[] = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
-
+  
   const navRef = useRef<HTMLDivElement | null>(null);
   const linksRef = useRef<(HTMLAnchorElement | HTMLButtonElement | null)[]>([]);
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);

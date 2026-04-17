@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import CertificateModal from "../ui/certificateModal";
 
 interface ExperienceItem {
   id: string;
@@ -12,6 +13,7 @@ interface ExperienceItem {
   duration: string;
   bullets: string[];
   tags: string[];
+  certificate: string;
 }
 
 const experiences: ExperienceItem[] = [
@@ -28,7 +30,8 @@ const experiences: ExperienceItem[] = [
       "Worked with the team to build features, fix bugs, and manage APIs using the MERN stack in an Agile workflow.",
       "Participated in daily stand-ups & weekly meetings, collaborating on progress, blockers, and deployment plans.",
     ],
-    tags: ["MERN Stack", "React", "Node.js", "MongoDB", "Agile"],
+    tags: [],
+    certificate: "/certificates/ZestosVentures.png",
   },
 ];
 
@@ -36,11 +39,14 @@ export default function ExperienceSection() {
   const [visible, setVisible] = useState(false);
   const [activeCard, setActiveCard] = useState<string | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
+  const [selectedCertificate, setSelectedCertificate] = useState<string | null>(
+    null,
+  );
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => entry.isIntersecting && setVisible(true),
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
@@ -119,7 +125,6 @@ export default function ExperienceSection() {
         <div className="absolute bottom-1/4 -right-20 w-100 h-100 bg-red-900/20 blur-[150px] rounded-full" />
 
         <div className="max-w-6xl mx-auto px-6 relative z-10">
-
           {/* HEADER */}
           <div
             className={`mb-20 transition-all duration-700 ${
@@ -132,7 +137,7 @@ export default function ExperienceSection() {
               </span>
             </div>
 
-            <h2 className="text-3xl md:text-5xl lg:text-[4rem] font-bold text-gray-300">
+            <h2 className="text-4xl md:text-5xl  font-bold text-gray-300">
               My
               <span className="ml-3 bg-linear-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
                 Journey
@@ -146,7 +151,6 @@ export default function ExperienceSection() {
 
           {/* TIMELINE */}
           <div className="relative">
-
             {/* LINE */}
             <div
               className={`absolute left-0 top-0 bottom-0 w-0.5 bg-linear-to-b from-red-600 via-red-900 to-transparent transition-all duration-700 ${
@@ -156,7 +160,6 @@ export default function ExperienceSection() {
 
             {experiences.map((exp, index) => (
               <div key={exp.id} className="relative">
-
                 {/* NODE */}
                 <div className="timeline-node absolute -left-2.25 top-9 w-5 h-5 bg-[#050505] border-2 border-red-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(255,0,0,0.5)]">
                   <div className="w-2 h-2 bg-red-600 rounded-full animate-[pulse_2s_infinite]" />
@@ -217,7 +220,10 @@ export default function ExperienceSection() {
                     {/* BULLETS */}
                     <ul className="flex flex-col gap-3 mb-6">
                       {exp.bullets.map((b, i) => (
-                        <li key={i} className="flex gap-3 text-gray-400 text-sm">
+                        <li
+                          key={i}
+                          className="flex gap-3 text-gray-400 text-sm"
+                        >
                           <span className="text-red-500 mt-0.5">◈</span>
                           {b}
                         </li>
@@ -235,6 +241,26 @@ export default function ExperienceSection() {
                         </span>
                       ))}
                     </div>
+
+                    {/* CERTIFICATE BUTTON */}
+                    <div className="md:absolute bottom-2 right-2 mt-4 md:mt-0">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedCertificate(exp.certificate);
+                        }}
+                        className="
+      px-4 py-2 text-xs font-semibold tracking-wider uppercase
+      text-red-400 border border-red-500/30 rounded-lg
+      bg-red-500/5
+      hover:bg-red-500 hover:text-black
+      transition-all duration-300
+      hover:scale-105
+    "
+                      >
+                        View Certificate
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -250,6 +276,12 @@ export default function ExperienceSection() {
           </div>
         </div>
       </section>
+
+      <CertificateModal
+        isOpen={!!selectedCertificate}
+        onClose={() => setSelectedCertificate(null)}
+        imageSrc={selectedCertificate || ""}
+      />
     </>
   );
 }
