@@ -8,13 +8,14 @@ const NAV_LINKS: { name: string; href: string }[] = [
   { name: "Home", href: "#" },
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
+  { name: "Experience", href: "#experience" },
   { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
-  
+
   const navRef = useRef<HTMLDivElement | null>(null);
   const linksRef = useRef<(HTMLAnchorElement | HTMLButtonElement | null)[]>([]);
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);

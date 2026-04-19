@@ -56,7 +56,7 @@ const MISSIONS: Project[] = [
     blend: "mix-blend-luminosity grayscale",
   },
   {
-    id: "01 🏠",
+    id: "01",
     name: "New Product",
     description: "New Product Coming Soon",
     tech: ["Comin Soon"],
@@ -222,7 +222,7 @@ export default function Projects() {
   const currentIndex = useRef(0);
   const cardsPerView = useRef(3);
 
-  // ✅ RESPONSIVE CARDS COUNT
+  // RESPONSIVE CARDS COUNT
   const getCardsPerView = () => {
     if (window.innerWidth < 768) return 1; // mobile
     if (window.innerWidth < 1024) return 2; // tablet
@@ -253,7 +253,7 @@ export default function Projects() {
     });
   };
 
-  // ✅ RESET POSITION ON RESIZE
+  // RESET POSITION ON RESIZE
   useEffect(() => {
     const handleResize = () => {
       currentIndex.current = 0;

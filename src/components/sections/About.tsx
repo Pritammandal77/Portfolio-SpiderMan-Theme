@@ -4,7 +4,6 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Use public folder paths in Next.js
 const imgMan = "/man/pritamImgNew.jpg";
 const imgSpiderman = "/spiderman/man-spider.png";
 

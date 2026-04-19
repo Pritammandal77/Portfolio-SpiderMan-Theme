@@ -111,16 +111,17 @@ export default function ExperienceSection() {
       `}</style>
 
       <section
+      id="experience"
         ref={sectionRef}
         className="relative py-28 overflow-hidden bg-[#050505]"
       >
-        {/* 🌐 GRID BACKGROUND */}
+        {/* GRID BACKGROUND */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808010_1px,transparent_1px),linear-gradient(to_bottom,#80808010_1px,transparent_1px)] bg-size[40px_40px] opacity-30" />
 
-        {/* 🔴 RADIAL RED GLOW */}
+        {/*RADIAL RED GLOW */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,0,0,0.08),transparent_70%)]" />
 
-        {/* 🔥 FLOATING AURAS */}
+        {/* FLOATING AURAS */}
         <div className="absolute top-1/4 -left-20 w-100 h-100 bg-red-600/20 blur-[150px] rounded-full animate-pulse" />
         <div className="absolute bottom-1/4 -right-20 w-100 h-100 bg-red-900/20 blur-[150px] rounded-full" />
 
