@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   verification: {
     google: "Mpd8i5F1Tz9-UB5I9M7meGz3-hjoFiAxQoXVoMye5BU",
   },
-  
+
   openGraph: {
     title: "Pritam Mandal | Full Stack Developer",
     description:
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     siteName: "Pritam Portfolio",
     images: [
       {
-        url: "/myDP.png",
+        url: "/pritam.png",
         width: 1200,
         height: 630,
         alt: "Pritam Mandal Portfolio",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     title: "Pritam Mandal | Full Stack Developer",
     description:
       "Check out my full-stack projects, skills, and development journey.",
-    images: ["/myDP.png"],
+    images: ["/pritam.png"],
   },
 
   robots: {
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/myDP.png",
+    icon: "/pritam.png",
   },
 };
 
