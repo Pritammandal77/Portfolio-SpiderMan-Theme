@@ -39,6 +39,10 @@ export const metadata: Metadata = {
 
   metadataBase: new URL("https://pritamm.vercel.app"),
 
+  verification: {
+    google: "Mpd8i5F1Tz9-UB5I9M7meGz3-hjoFiAxQoXVoMye5BU",
+  },
+  
   openGraph: {
     title: "Pritam Mandal | Full Stack Developer",
     description:
