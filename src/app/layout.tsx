@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     siteName: "Pritam Portfolio",
     images: [
       {
-        url: "logo.png",
+        url: "/myDP.png",
         width: 1200,
         height: 630,
         alt: "Pritam Mandal Portfolio",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     title: "Pritam Mandal | Full Stack Developer",
     description:
       "Check out my full-stack projects, skills, and development journey.",
-    images: ["logo.png"],
+    images: ["/myDP.png"],
   },
 
   robots: {
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/logo.png",
+    icon: "/myDP.png",
   },
 };
 
