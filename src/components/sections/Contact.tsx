@@ -32,7 +32,7 @@ const CONTACTS: ContactItem[] = [
   {
     name: "Instagram",
     value: "@pritamm_mandal",
-    link: "https://www.instagram.com/pritam_mandal_77",
+    link: "https://www.instagram.com/pritamm_mandal",
   },
   // { name: "Phone", value: "+919881228004", link: "tel:9881228004" },
 ];

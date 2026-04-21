@@ -308,7 +308,7 @@ export default function GitHubStats() {
                   >
                     {totalContribs > 0
                       ? `${totalContribs} contributions in the last year`
-                      : "Loading contribution data..."}
+                      : "loading contribution data..."}
                   </p>
                 </div>
                 {/* Legend */}
@@ -389,7 +389,7 @@ export default function GitHubStats() {
                     {loading ? (
                       <div className="flex gap-0.75">
                         {Array.from({ length: 53 }).map((_, wi) => (
-                          <div key={wi} className="flex flex-col gap-0.75">
+                          <div key={wi} className="flex flex-col gap-0.75 w-full">
                             {Array.from({ length: 7 }).map((_, di) => (
                               <div
                                 key={di}
