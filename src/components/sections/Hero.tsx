@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import gsap from "gsap";
 import { vertexShader, fragmentShader } from "../../util/HeroShader";
+import Image from "next/image";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -253,7 +254,21 @@ export default function Hero() {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-black flex items-center justify-center">
-      <div ref={containerRef} className="absolute inset-0 z-0 select-none" />
+      <div
+        ref={containerRef}
+        className="hidden xl:inline absolute inset-0 z-0 select-none"
+      />
+
+      {/* SPIDER IMAGE BACKGROUND */}
+      <div className="xl:hidden absolute inset-0">
+        <Image
+          src={imgSpiderman}
+          alt="spiderman"
+          fill
+          className="object-cover object-center opacity-[0.35]"
+          priority
+        />
+      </div>
 
       <div
         ref={cursorRef}
