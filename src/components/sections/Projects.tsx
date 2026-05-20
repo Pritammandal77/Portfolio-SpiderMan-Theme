@@ -26,7 +26,7 @@ type Project = {
 
 const MISSIONS: Project[] = [
   {
-    id: "02",
+    id: "01",
     name: "Notexa",
     description:
       "A full-stack platform for buying and selling academic notes with Razorpay payments, role-based authentication, and an AI-powered chatbot for user assistance.",
@@ -36,6 +36,25 @@ const MISSIONS: Project[] = [
     blend: "mix-blend-luminosity grayscale",
   },
   {
+    id: "02",
+    name: "Roomio",
+    description:
+      "A real-time roommate/flatmate discovery platform with profile based preference matching, instant messaging, personalized dashboard and robust user profile authentication.",
+    tech: [
+      "Next.js",
+      "Typescript",
+      "Redux Toolkit",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Socket.io",
+      "Resend"
+    ],
+    image: imgSpiderman,
+    link: "https://www.roomio.living",
+    blend: "mix-blend-overlay brightness-125 saturate-150",
+  },
+  {
     id: "03",
     name: "DevStackr",
     description:
@@ -43,7 +62,7 @@ const MISSIONS: Project[] = [
     tech: ["React", "Node.js", "MongoDB", "Socket.io", "Redux"],
     image: imgSpiderman,
     link: "https://devstackr.netlify.app",
-    blend: "mix-blend-overlay brightness-125 saturate-150",
+    blend: "mix-blend-luminosity grayscale",
   },
   {
     id: "04",
@@ -53,15 +72,6 @@ const MISSIONS: Project[] = [
     tech: ["React", "Firebase", "Tailwind CSS", "Redux"],
     image: imgSpiderman,
     link: "https://the-aura-mart.netlify.app",
-    blend: "mix-blend-luminosity grayscale",
-  },
-  {
-    id: "01",
-    name: "New Product",
-    description: "New Product Coming Soon",
-    tech: ["Comin Soon"],
-    image: imgSpiderman,
-    link: "",
     blend: "mix-blend-overlay brightness-125 saturate-150",
   },
 ];

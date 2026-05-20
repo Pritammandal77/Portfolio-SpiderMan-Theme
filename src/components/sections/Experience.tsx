@@ -25,9 +25,9 @@ const experiences: ExperienceItem[] = [
     period: "06/2025 – 09/2025",
     duration: "3 months",
     bullets: [
-      "Contributed to the development of the company's Careers website, handling both frontend and backend integration.",
-      "Developed the company's Club Website, focusing on frontend UI, responsiveness, and user experience.",
-      "Worked with the team to build features, fix bugs, and manage APIs using the MERN stack in an Agile workflow.",
+      "Collaborated with founders in daily meetings to define features, resolve blockers, and align on deployment",
+      "Developed the company’s Careers platform with team, managing both frontend UI and backend API integration",
+      "Engineered a responsive, cross-device UI for the Club Website to ensure a seamless user experience",
       "Participated in daily stand-ups & weekly meetings, collaborating on progress, blockers, and deployment plans.",
     ],
     tags: [],
@@ -111,7 +111,7 @@ export default function ExperienceSection() {
       `}</style>
 
       <section
-      id="experience"
+        id="experience"
         ref={sectionRef}
         className="relative py-28 overflow-hidden bg-[#050505]"
       >
