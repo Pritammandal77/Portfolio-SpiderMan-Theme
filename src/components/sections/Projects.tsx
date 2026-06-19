@@ -64,16 +64,7 @@ const MISSIONS: Project[] = [
     link: "https://devstackr.netlify.app",
     blend: "mix-blend-luminosity grayscale",
   },
-  {
-    id: "04",
-    name: "E-Commerce",
-    description:
-      "Developed a E-Commerce website, where users can browse a lot of products , serach items, filters , etc. Though it is a simulated store, all the items are fake",
-    tech: ["React", "Firebase", "Tailwind CSS", "Redux"],
-    image: imgSpiderman,
-    link: "https://the-aura-mart.netlify.app",
-    blend: "mix-blend-overlay brightness-125 saturate-150",
-  },
+  
 ];
 
 type ProjectCardProps = {

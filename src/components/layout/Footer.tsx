@@ -3,6 +3,7 @@
 import React from "react";
 import { ArrowUp, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import VisitorCounter from "../ui/VisitorCounter";
 
 const imgSpiderman = "/spiderman/spiderMan-Footer.png";
 
@@ -111,6 +112,10 @@ function Footer() {
             - Engineering Scalable Digital Experiences
           </span>
         </p>
+      </div>
+
+      <div className="flex justify-center pb-10">
+        <VisitorCounter />
       </div>
     </footer>
   );
