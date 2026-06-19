@@ -64,7 +64,6 @@ const MISSIONS: Project[] = [
     link: "https://devstackr.netlify.app",
     blend: "mix-blend-luminosity grayscale",
   },
-  
 ];
 
 type ProjectCardProps = {
