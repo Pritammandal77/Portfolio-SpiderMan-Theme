@@ -6,10 +6,12 @@ import GitHubStats from "@/components/sections/GithubStats";
 import Hero from "@/components/sections/Hero";
 import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
+import ClickSpark from "@/components/ui/ClickSpark";
 
 export default function Home() {
   return (
     <div>
+      <ClickSpark/>
       <Hero />
       <About />
       <Skills />
